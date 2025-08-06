@@ -24,7 +24,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mx-40 mt-15">
+      <div className="mx:5 md:mx-40 mt-15">
         <div>
           <div className="flex justify-between items-center my-10">
             <div className="text-sky-800 font-bold sm:text-sm md:text-2xl lg:text-3xl xl:text-4xl">
@@ -35,8 +35,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex justify-between gap-5 flex-col md:flex-row">
-            <div className="w-100 shadow-lg rounded-lg pb-2 overflow-hidden">
+          <div className="flex justify-center md:justify-between gap-5 flex-col md:flex-row">
+            <div className=" shadow-lg rounded-lg pb-2 overflow-hidden">
               <div className="">
                 <img
                   className="w-full h-60"
@@ -58,7 +58,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-100 shadow-lg rounded-lg pb-2 overflow-hidden">
+            <div className=" shadow-lg rounded-lg pb-2 overflow-hidden">
               <div className="">
                 <img
                   className="w-full h-60"
@@ -80,7 +80,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-100 shadow-lg rounded-lg pb-2 overflow-hidden">
+            <div className=" shadow-lg rounded-lg pb-2 overflow-hidden">
               <div className="">
                 <img
                   className="w-full h-60"
