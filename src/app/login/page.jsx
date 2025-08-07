@@ -8,7 +8,7 @@ const page = () => {
          <h1 className='text-4xl font-bold mt-5 mb-15'>Admin Login</h1>
             <input  placeholder='User Name' className='border-1 border-slate-200 w-full text-left focus:outline-violet-700 px-2 py-2 text-xl mb-5'/>
             <input placeholder='Password' className='border-1 border-slate-200 w-full text-left focus:outline-violet-700 px-2 py-2 text-xl mb-5' />
-            <button className='bg-violet-700 text-white text-xl font-bold px-4 py-2 mt-5'>Submit</button>
+            <button className='bg-violet-700 text-white text-xl font-bold px-4 py-2 mt-5'>Login</button>
             </div>
         </div> 
     </>
