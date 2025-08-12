@@ -26,10 +26,6 @@ const BusinessList = () => {
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
           <h1 className="text-2xl font-bold text-gray-800">All Businesses</h1>
-          <button className="mt-3 sm:mt-0 inline-flex items-center gap-2 bg-[#004274] hover:bg-[#003259] text-white px-4 py-2 rounded-lg transition">
-            <FontAwesomeIcon icon={faPlus} />
-            Add Business
-          </button>
         </div>
 
         {/* Responsive Table */}
