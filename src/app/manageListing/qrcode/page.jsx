@@ -1,64 +1,81 @@
-import React from "react";
+'use client';
+import React, { useState } from "react";
+import { Eye, Download } from "lucide-react";
 
-const QRCode = () => {
+const cards = Array.from({ length: 12 }, (_, i) => ({
+  id: i + 1,
+  img: "https://img.freepik.com/free-vector/flat-design-welcome-card-template_23-2149604670.jpg?t=st=1755778400~exp=1755782000~hmac=c269324b261f7e69b353f0fa3043202c4cfde4a5e103d6e0bc9a72b2ef23ec0b&w=2000",
+}));
+
+const ECard = () => {
+  const [previewImg, setPreviewImg] = useState(null);
+
   return (
-    <div className="min-h-screen bg-[#E6F3F8] p-4 md:p-8">
-      <div className="my-10 flex justify-start">
-        <button className="cursor-pointer bg-[#017BFE] hover:bg-[#006de2] border border-[#017BFE] text-white py-2 px-4 rounded-lg">
+    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+      {/* Back Button */}
+      <div className="my-6">
+        <button className="cursor-pointer bg-[#004274] hover:bg-[#00508e] border border-[#004274] text-white py-2 px-5 rounded-lg shadow-md transition-all duration-300">
           Back to Profile
         </button>
       </div>
-      <div className="mx-auto max-w-lg bg-white shadow rounded-xl p-3 md:p-6">
-        <img
-          className="w-full h-full"
-          src="https://img.freepik.com/free-vector/bartender-sign-design-template_742173-3003.jpg?t=st=1755778566~exp=1755782166~hmac=3da6e413a21b1c7e806c6730c3a272ce6397dbd03f0d74ffabb919817d547ed2&w=2000"
-        />
-        <div className="mt-10 flex gap-1 justify-evenly">
-          <button className="flex justify-center items-center cursor-pointer bg-white hover:bg-[#017BFE] border border-[#017BFE] text-[#017BFE] hover:text-white py-1 px-2 rounded-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-download mr-1"
-              viewBox="0 0 16 16"
-            >
-              <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
-              <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
-            </svg>{" "}
-            Download
-          </button>
-          <button className="flex justify-center items-center cursor-pointer bg-white hover:bg-[#017BFE] border border-[#017BFE] text-[#017BFE] hover:text-white py-1 px-2 rounded-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-share-fill mr-1"
-              viewBox="0 0 16 16"
-            >
-              <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5" />
-            </svg>{" "}
-            Share
-          </button>
-          <button className="flex justify-center items-center cursor-pointer bg-white hover:bg-[#017BFE] border border-[#017BFE] text-[#017BFE] hover:text-white py-1 px-2 rounded-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-link-45deg mr-1" 
-              viewBox="0 0 16 16"
-            >
-              <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
-              <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
-            </svg>
-            Copy Link
-          </button>
-        </div>
+
+      {/* Cards Grid */}
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {cards.map((card) => (
+          <div
+            key={card.id}
+            className="mx-auto max-w-sm bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-200 hover:shadow-2xl transition-shadow duration-300"
+          >
+            {/* Card Image */}
+            <img
+              className="w-full h-72 object-cover"
+              src={card.img}
+              alt="E-Card"
+            />
+
+            {/* Buttons Section */}
+            <div className="p-6 flex justify-center gap-3 flex-wrap">
+              <button
+                onClick={() => setPreviewImg(card.img)}
+                className="flex items-center gap-2 bg-white border border-[#004274] text-[#004274] hover:bg-[#004274] hover:text-white rounded-lg px-3 py-2 shadow-sm transition-all duration-300"
+              >
+                <Eye className="w-5 h-5" /> View
+              </button>
+              <button
+                className="flex items-center gap-2 bg-white border border-[#004274] text-[#004274] hover:bg-[#004274] hover:text-white rounded-lg px-3 py-2 shadow-sm transition-all duration-300"
+              >
+                <Download className="w-5 h-5" /> Download
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
+
+      {/* Preview Modal */}
+      {previewImg && (
+        <div className="fixed inset-0 bg-[rgba(0,0,0,0.6)] flex items-center justify-center z-50 p-4">
+          <div className="relative max-w-3xl w-full bg-white rounded-xl overflow-hidden shadow-lg">
+            <button
+              onClick={() => setPreviewImg(null)}
+              className="absolute top-3 right-3 bg-white py-2 px-4 rounded-full shadow hover:scale-110"
+            >
+              ✕
+            </button>
+            <img
+              src={previewImg}
+              alt="Preview"
+              className="w-full h-auto object-contain"
+            />
+            <div className="absolute bottom-4 right-4">
+              <button className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-md hover:scale-110">
+                <Download className="w-5 h-5 text-gray-700" /> Download
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default QRCode;
+export default ECard;

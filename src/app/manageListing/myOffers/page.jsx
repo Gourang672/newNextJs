@@ -18,10 +18,10 @@ const MyOffers = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#E6F3F8] p-4 md:p-8">
+    <div className="min-h-screen p-4 md:p-8">
       <div className="mx-auto bg-white rounded-xl shadow p-6">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-lg sm:text-xl md:text-2xl font-bold">
+          <h1 className="text-[#004274] text-lg sm:text-xl md:text-2xl font-bold">
             Offers for Rout Automobiles
           </h1>
           <button
@@ -33,14 +33,14 @@ const MyOffers = () => {
         </div>
 
         {/* Table */}
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto border-b border-b-gray-200">
           <table className="w-full border-collapse">
             <thead>
               <tr className="bg-gray-100 text-left">
-                <th className="px-4 py-3 font-semibold">ID</th>
-                <th className="px-4 py-3 font-semibold">Title</th>
-                <th className="px-4 py-3 font-semibold">Description</th>
-                <th className="px-4 py-3 font-semibold">Actions</th>
+                <th className="px-4 py-3 font-semibold text-[#004274]">ID</th>
+                <th className="px-4 py-3 font-semibold text-[#004274]">Title</th>
+                <th className="px-4 py-3 font-semibold text-[#004274]">Description</th>
+                <th className="px-4 py-3 font-semibold text-[#004274]">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -52,9 +52,9 @@ const MyOffers = () => {
                   <td className="px-4 py-3">{offer.id}</td>
                   <td className="px-4 py-3">{offer.title}</td>
                   <td className="px-4 py-3">{offer.description}</td>
-                  <td className="px-4 py-3 space-x-2">
+                  <td className="px-4 py-3 flex space-x-2">
                     <button
-                      className="bg-blue-600 text-white px-4 py-1.5 rounded-lg hover:bg-blue-700 transition"
+                      className="bg-[#004274] text-white px-4 py-1.5 rounded-lg hover:bg-[#00508e] transition"
                     >
                       Edit
                     </button>
@@ -76,7 +76,7 @@ const MyOffers = () => {
           <button className="px-4 py-2 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">
             Previous
           </button>
-          <span className="px-3 py-2 bg-blue-600 text-white rounded-md">1</span>
+          <span className="px-3 py-2 bg-[#004274] text-white rounded-md">1</span>
           <button className="px-4 py-2 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">
             Next
           </button>

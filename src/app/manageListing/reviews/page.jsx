@@ -7,17 +7,17 @@ const Reviews = () => {
     const [sortOption, setSortOption] = useState("Newest");
 
   return (
-     <section className="min-h-screen bg-[#E6F3F8] py-10 px-4 md:px-8">
-      <div className="mx-auto bg-white rounded-xl shadow-md p-6 md:p-10">
+     <section className="min-h-screen py-10 px-4 md:px-8">
+      <div className="mx-auto bg-white rounded-xl shadow-lg p-6 md:p-10">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-b-gray-300 pb-6">
           <div>
-            <h1 className="text-2xl font-bold text-gray-800">Reviews</h1>
+            <h1 className="text-2xl font-bold text-[#004274]">Reviews</h1>
             <p className="text-gray-600 text-sm">
               Manage your office space listing in one single dashboard.
             </p>
           </div>
-          <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition">
+          <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg text-sm text-[#004274] hover:bg-gray-100 transition">
             <Store size={18} /> Rout Automobiles
             <ChevronDown size={16} />
           </button>
@@ -28,7 +28,7 @@ const Reviews = () => {
           <div className="flex items-center justify-between border border-gray-300 rounded-lg p-4 hover:shadow-md transition">
             <div>
               <p className="text-gray-500 text-sm">Reviews</p>
-              <p className="text-xl font-semibold text-gray-800">1</p>
+              <p className="text-xl font-semibold text-[#004274]">1</p>
             </div>
             <span className="bg-blue-100 text-blue-600 p-2 rounded-full">
               <Star size={20} />
@@ -56,7 +56,7 @@ const Reviews = () => {
             <select
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#004274]"
             >
               <option>Newest</option>
               <option>Oldest</option>
@@ -67,7 +67,7 @@ const Reviews = () => {
 
           {/* Review Card */}
           <div className="bg-gray-50 border border-gray-300 rounded-xl p-5 shadow-sm hover:shadow-md transition">
-            <h3 className="font-semibold text-gray-800">Rashmi Ranjan Rout</h3>
+            <h3 className="font-semibold text-[#004274]">Rashmi Ranjan Rout</h3>
             <div className="flex items-center gap-2 mt-1">
               <div className="flex text-yellow-500">
                 {[...Array(5)].map((_, i) => (

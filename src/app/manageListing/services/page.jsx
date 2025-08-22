@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
+import { CheckSquare } from "lucide-react";
 
 const Services = () => {
-
-     const [catalogue, setCatalogue] = useState("");
+  const [catalogue, setCatalogue] = useState("");
   const [category, setCategory] = useState("");
 
   const subcategories = {
@@ -78,60 +78,65 @@ const Services = () => {
     );
   };
 
-
   return (
-    <div className="min-h-screen bg-[#E6F3F8] p-4 md:p-8">
+    <div className="min-h-screen bg-[#F8FAFC] py-10 px-4 md:px-8">
       <form
         onSubmit={handleSubmit}
-        className="mx-auto bg-white shadow rounded-xl p-6 md:p-10"
+        className="mx-auto max-w-5xl bg-white shadow-lg rounded-2xl p-6 md:p-10 border border-gray-100"
       >
-        <h1 className="text-2xl font-bold mb-6">Edit Catalogue</h1>
+        <h1 className="text-3xl font-bold mb-8 text-[#004274] flex items-center gap-2">
+          <CheckSquare size={28} className="text-[#004274]" /> Edit Catalogue
+        </h1>
 
         {/* Catalogue Input */}
-        <div className="flex flex-col md:flex-row gap-4 mb-6">
+        <div className="flex flex-col md:flex-row gap-4 mb-8">
           <input
             type="text"
             value={catalogue}
             onChange={(e) => setCatalogue(e.target.value)}
             placeholder="Enter new catalogue"
-            className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring focus:ring-blue-200"
+            className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-[#004274] focus:ring focus:ring-[#004274] transition"
           />
           <button
             type="submit"
-            className="bg-white border-2 border-[#004273] text-[#004273] px-6 py-2 rounded-full hover:bg-[#004273] hover:text-white transition"
+            className="bg-[#004274] text-white px-6 py-2 rounded-lg hover:bg-[#00508e] transition shadow"
           >
-            Submit
+            Add
           </button>
         </div>
 
         {/* Requested Catalogues */}
-        <div className="mb-6">
-          <h2 className="text-lg font-semibold">Requested Catalogues</h2>
-          <p className="text-sm text-gray-500">
+        <div className="mb-10">
+          <h2 className="text-lg font-semibold text-[#004274] mb-1">
+            Requested Catalogues
+          </h2>
+          <p className="text-sm text-gray-500 italic">
             No requested catalogues found.
           </p>
         </div>
 
         {/* Category */}
-        <div className="mb-6">
-          <label className="block text-sm font-medium mb-1">Category</label>
+        <div className="mb-8">
+          <label className="block text-sm font-semibold mb-2 text-[#004274]">
+            Category
+          </label>
           <input
             type="text"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             placeholder="Enter category"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-[#004274] focus:ring focus:ring-[#004274] transition"
           />
         </div>
 
         {/* Sections */}
-        <div className="space-y-6">
+        <div className="space-y-8">
           {Object.entries(subcategories).map(([key, items]) => (
             <div
               key={key}
-              className="border-l-3 border-l-[#0C6DFD] border border-gray-200 rounded-lg shadow-sm p-4"
+              className="border border-gray-200 rounded-xl p-5 bg-gray-50 hover:bg-gray-100 transition"
             >
-              <h3 className="font-semibold text-lg mb-3">
+              <h3 className="text-[#004274] font-semibold text-lg mb-4 capitalize">
                 {key === "engine" && "Engine Repair and Maintenance"}
                 {key === "brake" && "Brake System Services"}
                 {key === "suspension" && "Suspension and Steering"}
@@ -141,25 +146,33 @@ const Services = () => {
                 {items.map((item) => (
                   <label
                     key={item}
-                    className="flex items-center space-x-2 border border-gray-200 rounded-md p-2 hover:bg-gray-50 cursor-pointer"
+                    className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-2 hover:border-[#004274] hover:shadow-sm transition cursor-pointer"
                   >
                     <input
                       type="checkbox"
                       checked={!!checkedItems[item]}
                       onChange={() => handleCheck(item)}
-                      className="h-4 w-4 text-blue-600"
+                      className="h-4 w-4 accent-[#004274]"
                     />
-                    <span className="text-sm">{item}</span>
+                    <span className="text-sm text-gray-700">{item}</span>
                   </label>
                 ))}
               </div>
             </div>
           ))}
         </div>
-        <button className="cursor-pointer bg-[#E6F3F8] hover:bg-[#dbf3fd] hover:scale-102 transition-all mt-10 px-4 py-2 border-1 rounded-xl font-bold">Update Catalogues</button>
+
+        <div className="flex justify-end mt-10">
+          <button
+            type="submit"
+            className="bg-[#004274] text-white px-8 py-3 rounded-lg font-semibold shadow hover:bg-[#00508e] transition"
+          >
+            Update Catalogues
+          </button>
+        </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Services
+export default Services;
